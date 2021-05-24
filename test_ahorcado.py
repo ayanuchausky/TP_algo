@@ -5,6 +5,8 @@ def palabra_insertada_a_interrogacion(palabra_a_adivinar):
         interrogaciones+="?"
     return interrogaciones
 
+#asdasd
+
 def interfaz(palabra_a_adivinar):
     #Agustín Conti: Imprime la interfaz del juego, faltan muchas cosas
     aciertos=0
