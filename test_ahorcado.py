@@ -33,20 +33,11 @@ def victoria():
     pass
 
 def main():
+#     Ejecuta el juego
     CANTIDAD_DESACIERTOS_PERDER= 8
     while desaciertos<=CANTIDAD_DESACIERTOS_PERDER and not victoria():
         print_interfaz(palabra_a_adivinar)
         ingrese_letra()
         palabra_insertada_a_interrogacion(palabra_a_adivinar)
-
-
-
-
-
-
-
-
-
-
 
 main()
