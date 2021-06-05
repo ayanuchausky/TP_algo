@@ -103,4 +103,3 @@ def main():
         print("Has ganado")
     else:
         print("Game over")
-    letras_usadas=[]
