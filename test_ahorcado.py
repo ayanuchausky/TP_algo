@@ -1,3 +1,38 @@
+"""
+Parte hecha por Juan Ignacio D`Angona - Etapa 2
+Esta parte del codigo se encarga de clasificar
+las palabras del texto dado, acorde a las condiciones
+impuestas por la consigna.
+
+"""
+from texto import obtener_texto
+
+def palabras_candidatas():
+    texto_a_procesar=str(obtener_texto())
+    texto_procesado=((texto_a_procesar.casefold()).replace(".","")).split() #Esta funcion es para separar cada palabra del texto
+    diccionario_palabras={}
+    contador_palabras_diccionario=0 
+    for palabra in texto_procesado:                  
+        if (palabra.isalpha()) and len(palabra)>=5:  #Son las condiciones para que la palabra sea aceptada
+            if palabra not in diccionario_palabras:
+                diccionario_palabras[palabra]=1
+            else:
+                diccionario_palabras[palabra]+=1           
+    lista_palabras =sorted(diccionario_palabras.items())
+    for elemento in lista_palabras: 
+        contador_palabras_diccionario+=1
+        print(elemento)
+    print("Palabras distintas en total:", contador_palabras_diccionario)
+    return diccionario_palabras
+
+
+"""
+
+Parte hecha por Agustín Esteban Conti - Etapa 1
+Esta parte del codigo es la estructura principal
+del juego.
+
+"""
 palabra_a_adivinar = "auto" #palabra usada para testear
 
 def palabra_insertada_a_interrogacion(palabra_a_adivinar, letras_usadas):
@@ -70,5 +105,3 @@ def main():
     else:
         print("Game over")
     letras_usadas=[]
-
-main()
