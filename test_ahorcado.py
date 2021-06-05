@@ -25,7 +25,6 @@ def palabras_candidatas():
     print("Palabras distintas en total:", contador_palabras_diccionario)
     return diccionario_palabras
 
-
 """
 
 Parte hecha por Agustín Esteban Conti - Etapa 1
