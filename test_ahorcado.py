@@ -1,3 +1,33 @@
+""" ETAPA 2 """
+
+"""
+Parte hecha por Juan Ignacio D`Angona - Etapa 2
+Esta parte del codigo se encarga de clasificar
+las palabras del texto dado, acorde a las condiciones
+impuestas por la consigna.
+
+"""
+from texto import obtener_texto
+diccionario_palabras={}
+#bueno aca faltaria la parte que me tiene que responder diego
+def palabras_candidatas():
+    texto_a_procesar=obtener_texto  #este codigo no se si esta bien xd
+   
+    for palabra in texto_a_procesar.split:      #Esta funcion es para separar cada palabra del texto            
+        if (palabra.isaplha()) and len.palabra>=5:  #Son las condiciones para que la palabra sea aceptada
+            diccionario_palabras[palabra]=palabra
+            if palabra in diccionario_palabras:
+                diccionario_palabras[palabra]=diccionario_palabras=+1
+            else:
+                diccionario_palabras[palabra]=1
+            #Este segundo if se encarga de darle valor a
+            #a las key del diccionario que vendrian a ser las
+            #palabras
+                
+    lista_palabras = list(diccionario_palabras.value())
+    lista_palabras.sort()
+
+""" ETAPA 1 """
 palabra_a_adivinar = "auto" #palabra usada para testear
 
 def palabra_insertada_a_interrogacion(palabra_a_adivinar, letras_usadas):
