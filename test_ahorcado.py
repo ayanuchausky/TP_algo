@@ -71,7 +71,7 @@ def ejecutarJuego(palabraParaJuego):
                 letras_derrota += " " + letra_ingresada
                 print_interfaz(palabraParaJuego, aciertos, desaciertos, "Lo siento!!!", letras_derrota, letras_usadas)
     if not desaciertos<CANTIDAD_DESACIERTOS_PERDER:
-        print("Has perdido")
+        print("Has perdido","- La palabra era:",palabraParaJuego)
     elif victoria(letras_usadas, palabraParaJuego):
         print("Has ganado")
     else:
