@@ -226,8 +226,6 @@ def random_word(lista_de_candidatas):
     return palabra_elegida
 
 def obtenerPalabra(diccionarioDePalabras, longitudDeseada = -1):
-    """longitud = longitud_deseada()"""
-    """lista_de_palabras = ["hola", "como", "estas", "estamos", "haciendo", "un", "TP"]"""
     longitud = longitudDeseada
     lista_de_palabras = diccionarioDePalabras
     palabras_filtradas = filtrar_palabras(lista_de_palabras,longitud)
