@@ -140,7 +140,7 @@ def ejecutarJuego(palabraParaJuego):
     print("")
     print(f"Palabra a adivinar: {cadenaInterrogacion(palabra_a_adivinar, letras_usadas)} | Puntos: {puntos} | Letras incorrectas: {letras_derrota}")
     print("")
-    while not victoria(letras_usadas, palabra_a_adivinar) and letra_ingresada!="fin" and letra_ingresada!="0":
+    while not victoria(letras_usadas, palabra_a_adivinar) and letra_ingresada!="fin" and letra_ingresada!="0" and len(letras_derrota)<8:
         letra_ingresada=inputLetra(letras_usadas)
         if darPuntos(letra_ingresada, palabra_a_adivinar):
             puntos += 10
@@ -154,6 +154,9 @@ def ejecutarJuego(palabraParaJuego):
     if victoria(letras_usadas, palabra_a_adivinar):
         print("")
         print("¡Felicidades, has adivinado la palabra!")
+    if len(letras_derrota)>=8:
+        print("")
+        print("Has perdido, vuelve a intentarlo")
     seguir = preguntarNuevoJuego()
     if seguir:
         palabraParaJuego = obtenerPalabra(palabras_candidatas(), longitud_deseada())
@@ -183,10 +186,11 @@ def palabras_candidatas():
             else:
                 diccionario_palabras[palabra]+=1           
     lista_palabras =sorted(diccionario_palabras.items())
-    for elemento in lista_palabras: 
-        contador_palabras_diccionario+=1
-        print(elemento)
-    print("Palabras distintas en total:", contador_palabras_diccionario)
+    if input("Si desea ver la lista de posibles palabras ingrese si: ")=="si": 
+        for elemento in lista_palabras: 
+            contador_palabras_diccionario+=1
+            print(elemento)
+        print("Palabras distintas en total:", contador_palabras_diccionario)
     return diccionario_palabras
 
 """ETAPA 3"""
@@ -198,11 +202,11 @@ def define_word_list(dictionary):
         pre_candidatas += key
     return pre_candidatas
 
-
-"""ver como se comporta esta funcion cuando el usuario simplementer retorna enter; toma el -1 por default correctamente?"""
 def longitud_deseada():
-    ingresar_long = int(input("Ingrese la longitud deseada para la palabra: "))
-    return ingresar_long
+    ingresar_long = (input("Ingrese la longitud deseada para la palabra: "))
+    while not ingresar_long.isdecimal():
+        ingresar_long = (input("Inválido, ingrese un número: "))
+    return int(ingresar_long)
 
 def filtrar_palabras(lista_de_palabras,longitud):
     palabras_candidatas = []
@@ -211,7 +215,6 @@ def filtrar_palabras(lista_de_palabras,longitud):
         palabras_candidatas = lista_de_palabras
     else:
         for palabra in lista_de_palabras:
-            """Creo que esta parte esta mal porque se trabaja con el input de la funcion como si fuera una lista en vez de un diccionario"""
             if len(palabra) == longitud:
                 palabras_candidatas += [palabra]
             elif len(palabra) != longitud:
@@ -236,5 +239,5 @@ def main():
     palabraParaJuego = obtenerPalabra(palabras_candidatas(), longitud_deseada())
     system("cls")
     ejecutarJuego(palabraParaJuego)
-
+    
 main()
